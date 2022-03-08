@@ -1,0 +1,10 @@
+{
+  "$schema": "https://deno.land/x/denon@2.5.0/schema.json",
+  "importmap": "import_map.json",
+  "scripts": {
+    "app:start": {
+      "cmd": "deno run --allow-net=:3000,:27017 --config tsconfig.json --import-map=import_map.json --no-check ./src/index.ts",
+      "desc": "Run the app"
+    }
+  }
+}

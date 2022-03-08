@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+                                     
+    "lib": ["dom", "dom.asynciterable", "deno.ns"],
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "strict": true,
+  }
+}

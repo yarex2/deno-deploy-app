@@ -1,0 +1,22 @@
+###
+GET http://localhost:3000/todos HTTP/1.1
+
+###
+POST http://localhost:3000/todos HTTP/1.1
+content-type: application/json
+
+{
+    "message": "Learn Angular within the next month"
+}
+
+###
+PUT http://localhost:3000/todos/47c6b7dd-ddc7-41d1-a287-1b485e3e5bea HTTP/1.1
+content-type: application/json
+
+{
+    "message": "Learn React within the next month"
+}
+
+###
+DELETE http://localhost:3000/todos/47c6b7dd-ddc7-41d1-a287-1b485e3e5bea HTTP/1.1
+content-type: application/json
