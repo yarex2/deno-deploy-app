@@ -1,0 +1,31 @@
+image: alpine:latest
+
+stages:
+  - build
+  - deploy staging
+  # - deploy production
+
+build:
+  stage: build
+  only:
+    - master
+    - merge_requests
+  script:
+    - chmod +x ./scripts/vars.sh && ./scripts/vars.sh
+    - docker-compose build
+  artifacts:
+    paths:
+      - ./app
+
+.deploy_template: &deploy
+  only:
+    - master
+  when: manual
+  script:
+    - chmod +x ./scripts/deploy.sh && ./scripts/deploy.sh
+
+deploy staging:
+  <<: *deploy
+  stage: deploy staging
+  environment:
+    name: staging

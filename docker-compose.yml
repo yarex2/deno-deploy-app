@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  deno-deploy-server:
+    build:
+      context: ./app/server
+    image: deno-deploy-server
+    container_name: deno-deploy-server
+    ports:
+      - "3000:3000"
+    env_file:
+      - dd-server.env
+  deno-deploy-client:
+    build:
+      context: ./app/client
+    image: deno-deploy-client
+    container_name: deno-deploy-client
+    ports:
+      - "8080:8080"
+    env_file:
+      - dd-client.env
+    depends_on:
+      - deno-deploy-server
+  mongo:
+    image: mongo
+    container_name: deno-deploy-mongodb
+    ports:
+      - "27017:27017"

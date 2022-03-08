@@ -1,0 +1,8 @@
+type Todo {
+  message: String!
+  timestamp: String
+}
+
+type Query {
+  getTodos: [Todo!]
+}
